@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "376371174233",
+    "firebase_url": "https://pracfirebase-b6d1b.firebaseio.com",
+    "project_id": "pracfirebase-b6d1b",
+    "storage_bucket": "pracfirebase-b6d1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376371174233:android:e6cab7e3981e95f8",
+        "android_client_info": {
+          "package_name": "com.terbas1.pracfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376371174233-aus5iet6k87g1gci5c2nq42sj2jmujoj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.terbas1.pracfirebase",
+            "certificate_hash": "5a4901a3e5ec8360f6ffbc31cc07c0a6da176021"
+          }
+        },
+        {
+          "client_id": "376371174233-qrhjdr8cn336rdocrqffcn90286ej5e1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKT5pT2hJg48dgyMAnYtstqDsVwel3i_Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376371174233-qrhjdr8cn336rdocrqffcn90286ej5e1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
