@@ -18,8 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.like.LikeButton;
-import com.like.OnLikeListener;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class PostRVAdapter extends RecyclerView.Adapter<PostRVAdapter.ViewHolder
         CircleImageView userImage;
         TextView displaynameText;
         TextView likesText;
-        LikeButton likeButton;
+
         ImageView pictureImage;
         TextView titleText;
         TextView bodyText;
@@ -61,7 +60,7 @@ public class PostRVAdapter extends RecyclerView.Adapter<PostRVAdapter.ViewHolder
             userImage = itemView.findViewById(R.id.user_picture);
             displaynameText = itemView.findViewById(R.id.user_displayname);
             likesText = itemView.findViewById(R.id.like_count);
-            likeButton = itemView.findViewById(R.id.like_button);
+
             pictureImage = itemView.findViewById(R.id.post_picture);
             titleText = itemView.findViewById(R.id.post_title);
             bodyText = itemView.findViewById(R.id.post_body);
@@ -107,47 +106,7 @@ public class PostRVAdapter extends RecyclerView.Adapter<PostRVAdapter.ViewHolder
         Log.d(TAG, "currentUser: " + currentUser);
 
         // Marcando el like button siempre y cuando el uid del usuario actual se encuentre en la lista de likes
-        viewHolder.likeButton.setLiked(post.getLikes().containsKey(currentUser.getUid()));
 
-
-        final DatabaseReference likesRef = FirebaseDatabase.getInstance().getReference("posts")
-                .child(post.getId())
-                .child("likes");
-
-        // Implementando el evento click del like button
-        viewHolder.likeButton.setOnLikeListener(new OnLikeListener() {
-            @Override
-            public void liked(LikeButton likeButton) {
-                Log.d(TAG, "Like it!");
-                likesRef.child(currentUser.getUid()).setValue(true)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()){
-                                    Log.d(TAG, "onSuccess");
-                                }else{
-                                    Log.e(TAG, "onFailure", task.getException());
-                                }
-                            }
-                        });
-            }
-
-            @Override
-            public void unLiked(LikeButton likeButton) {
-                Log.d(TAG, "Doesn't like it!");
-                likesRef.child(currentUser.getUid()).removeValue()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()){
-                                    Log.d(TAG, "onSuccess");
-                                }else{
-                                    Log.e(TAG, "onFailure", task.getException());
-                                }
-                            }
-                        });
-            }
-        });
 
     }
 
